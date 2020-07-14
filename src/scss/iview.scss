@@ -1,0 +1,20 @@
+.ivu-select-visible .ivu-select-selection {
+  border-color: #999;
+  box-shadow: none;
+}
+.ivu-select-selection-focused, .ivu-select-selection:hover {
+  border-color: #999;
+}
+.ivu-select-selection {
+  border-color: #999;
+  border-radius: 0;
+}
+.ivu-input {
+  border-radius: 0;
+  border-color: #999;
+}
+.ivu-input:hover {
+  border-color: #999;
+  outline: none;
+  box-shadow: none;
+}
