@@ -10,8 +10,8 @@
       <div
         class="login-form pd-30 border-radius-10 bc-fff"
       >
-        <div>
-          <img src="~assets/images/common/logo.png" alt="">
+        <div class="flex">
+          <img src="~assets/images/login/phone.png" alt="">
           <van-field
             v-model="phoneNumber"
             center
