@@ -1,5 +1,5 @@
 <template>
-  <div class="verification-code-wrap bg-fff flex align-center">
+  <div class="verification-code-wrap bg-fff flex">
     <div class="text-center wd-100p mt-20p">
       <div class="cl-666 fs-40 mb-15">输入验证码</div>
       <div class="cl-666 fs-32 mb-15">验证码已发送至：{{phone}}</div>
@@ -9,20 +9,22 @@
           <span class="fs-24 pl-30 pr-30 pt-10 pb-10">重新发送</span>
         </van-button>
       </div>
-      <van-row class="mt-100 ml-30 mr-30" gutter="20">
-        <van-col span="6">
-          <van-field class="verification-code-input"></van-field>
-        </van-col>
-        <van-col span="6">
-          <van-field class="verification-code-input"></van-field>
-        </van-col>
-        <van-col span="6">
-          <van-field class="verification-code-input"></van-field>
-        </van-col>
-        <van-col span="6">
-          <van-field class="verification-code-input"></van-field>
-        </van-col>
-      </van-row>
+      <div class="mt-100 ml-30 mr-30" >
+        <van-row gutter="20">
+          <van-col span="6">
+            <van-field class="verification-code-input"></van-field>
+          </van-col>
+          <van-col span="6">
+            <van-field class="verification-code-input"></van-field>
+          </van-col>
+          <van-col span="6">
+            <van-field class="verification-code-input"></van-field>
+          </van-col>
+          <van-col span="6">
+            <van-field class="verification-code-input"></van-field>
+          </van-col>
+        </van-row>
+      </div>
     </div>
   </div>
 </template>
@@ -69,7 +71,6 @@ export default {
     height: 100%;
     .verification-code-input{
       border-bottom: 1px solid #979797 !important;
-      margin: 0 50px !important;
     }
   }
 </style>

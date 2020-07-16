@@ -45,7 +45,7 @@ module.exports = {
           // NavBar
           "nav-bar-icon-color": "#fff",
           "nav-bar-title-text-color": "#fff",
-          "nav-bar-background-color": "#393a3d",
+          "nav-bar-background-color": "#FD4C72",
           // tab
           "tabs-bottom-bar-color": "#FD4C72"
         }
