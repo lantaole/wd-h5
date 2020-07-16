@@ -12,14 +12,18 @@
       >
         <div class="flex">
           <img src="~assets/images/login/phone.png" alt="">
-          <van-field
-            v-model="phoneNumber"
-            center
-            clearable
-            type="tel"
-            placeholder="请输入手机号"
-          >
-          </van-field>
+          <div class="position-relative ml-20 wd-100p">
+            <van-field
+              v-model="phoneNumber"
+              center
+              clearable
+              type="tel"
+              placeholder="请输入手机号"
+              class="bg-F2F2F2 border-radius-10 pl-120"
+            >
+            </van-field>
+            <i class="position-absolute bg-E7E7E7 phone-icon">+86</i>
+          </div>
         </div>
 
 <!--        <van-field-->
@@ -246,6 +250,20 @@ export default {
     left:50%;
     width: 100%;
     transform:translate(-50%,-50%);
+    .phone-icon{
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100px;;
+      border-radius: 10px 0 0 10px;
+      font-family:PingFangSC-Regular,PingFang SC;
+      font-style: normal;
+      font-size: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
     .logo {
       display: flex;
       align-items: center;

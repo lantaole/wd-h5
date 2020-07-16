@@ -187,10 +187,18 @@ input[type="number"] {
 
 
 /*background-color*/
+.bg-fff{
+  background-color: #fff;
+}
 .bc-green {
   background-color: #09bb07;
 }
-
+.bg-F2F2F2{
+  background-color: #F2F2F2;
+}
+.bg-E7E7E7{
+  background-color: #E7E7E7;
+}
 .bc-red {
   background-color: #FF5E5E;
 }
@@ -294,6 +302,9 @@ input[type="number"] {
 .mt-100 {
   margin-top: 100px;
 }
+.mt-20p{
+  margin-top: 20%;
+}
 
 /*margin-right*/
 .mr-5 {
@@ -317,7 +328,7 @@ input[type="number"] {
 }
 
 .mr-30 {
-  margin-right: 30px;
+  margin-right: 30px !important;
 }
 
 .mr-35 {
@@ -479,7 +490,7 @@ input[type="number"] {
 }
 
 .ml-30 {
-  margin-left: 30px;
+  margin-left: 30px !important;
 }
 
 .ml-35 {
@@ -941,6 +952,9 @@ input[type="number"] {
 
 .pl-100 {
   padding-left: 100px;
+}
+.pl-120{
+  padding-left: 120px;
 }
 .wd-100p{
   width: 100%;
