@@ -3,7 +3,7 @@ import App from "./App.vue";
 import api from "@/api";
 import router from "./router";
 import store from "./store";
-import { Toast, Dialog, Lazyload } from "vant";
+import { Toast, Dialog, Lazyload, } from "vant";
 import "lib-flexible/flexible";
 import "hidpi-canvas/dist/hidpi-canvas.min";
 import VueJsonp from "vue-jsonp";

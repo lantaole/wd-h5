@@ -70,7 +70,7 @@ export default [
     meta: {
       title: "我的订单",
       isShowNavBar: true,
-      isShowTabBar: true,
+      isShowTabBar: false,
       markName: ""
     },
     component: () =>

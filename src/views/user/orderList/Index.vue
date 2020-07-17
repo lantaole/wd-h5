@@ -30,8 +30,93 @@
               </div>
             </div>
           </div>
-          <div class="mt-50 flex-column align-center fs-10">
-            <span class="cl-979797 pr-15">总价￥360，运费￥10，其他费用￥10，优惠￥20</span> <span class="cl-666 fs-24">合计 ¥ 360</span>
+          <div class="flex mt-30">
+            <div style="background: #999 url('/src/assets/images/common/logo.png') no-repeat center;" class="wd-100 h-100 border-radius-50p"></div>
+            <div class="flex flex-column align-center ml-20">
+              <div class="fs-10">香奈儿XXXX香奈儿XXXX香奈儿XXXX香奈儿XXXX</div>
+              <div class="fs-8 cl-b7b7b7">红 ;XL</div>
+              <div class="wd-100p flex justify-space-between">
+                <span class="cl-666">¥ 160</span>
+                <span class="cl-666 ">*2</span>
+              </div>
+            </div>
+          </div>
+          <div class="mt-50 flex align-center fs-10">
+            <span class="cl-979797 pr-10">总价￥360，运费￥10，其他费用￥10，优惠￥20</span> <span class="cl-666 fs-26 ">合计 ¥ 360</span>
+          </div>
+          <van-divider />
+          <div class="text-right">
+            <van-button type="primary" size="mini" class="pr-30 pl-30">查看物流</van-button>
+          </div>
+        </div>
+        <div class="bg-fff mb-20 ml-40 mr-40 border-radius-10 mt-30 pd-28">
+          <div class="flex justify-space-between align-center">
+            <span class="fs-32 cl-666">一点点代购</span>
+            <span class="cl-666">2020-04-02 18:00:00</span>
+          </div>
+          <div class="flex mt-30">
+            <div style="background: #999 url('/src/assets/images/common/logo.png') no-repeat center;" class="wd-100 h-100 border-radius-50p"></div>
+            <div class="flex flex-column align-center ml-20">
+              <div class="fs-10">香奈儿XXXX香奈儿XXXX香奈儿XXXX香奈儿XXXX</div>
+              <div class="fs-8 cl-b7b7b7">红 ;XL</div>
+              <div class="wd-100p flex justify-space-between">
+                <span class="cl-666">¥ 160</span>
+                <span class="cl-666 ">*2</span>
+              </div>
+            </div>
+          </div>
+          <div class="flex mt-30">
+            <div style="background: #999 url('/src/assets/images/common/logo.png') no-repeat center;" class="wd-100 h-100 border-radius-50p"></div>
+            <div class="flex flex-column align-center ml-20">
+              <div class="fs-10">香奈儿XXXX香奈儿XXXX香奈儿XXXX香奈儿XXXX</div>
+              <div class="fs-8 cl-b7b7b7">红 ;XL</div>
+              <div class="wd-100p flex justify-space-between">
+                <span class="cl-666">¥ 160</span>
+                <span class="cl-666 ">*2</span>
+              </div>
+            </div>
+          </div>
+          <div class="mt-50 flex align-center fs-10">
+            <span class="cl-979797 pr-10">总价￥360，运费￥10，其他费用￥10，优惠￥20</span> <span class="cl-666 fs-26 ">合计 ¥ 360</span>
+          </div>
+          <van-divider />
+          <div class="text-right">
+            <van-button type="primary" size="mini" class="pr-30 pl-30">查看物流</van-button>
+          </div>
+        </div>
+        <div class="bg-fff mb-20 ml-40 mr-40 border-radius-10 mt-30 pd-28">
+          <div class="flex justify-space-between align-center">
+            <span class="fs-32 cl-666">一点点代购</span>
+            <span class="cl-666">2020-04-02 18:00:00</span>
+          </div>
+          <div class="flex mt-30">
+            <div style="background: #999 url('/src/assets/images/common/logo.png') no-repeat center;" class="wd-100 h-100 border-radius-50p"></div>
+            <div class="flex flex-column align-center ml-20">
+              <div class="fs-10">香奈儿XXXX香奈儿XXXX香奈儿XXXX香奈儿XXXX</div>
+              <div class="fs-8 cl-b7b7b7">红 ;XL</div>
+              <div class="wd-100p flex justify-space-between">
+                <span class="cl-666">¥ 160</span>
+                <span class="cl-666 ">*2</span>
+              </div>
+            </div>
+          </div>
+          <div class="flex mt-30">
+            <div style="background: #999 url('/src/assets/images/common/logo.png') no-repeat center;" class="wd-100 h-100 border-radius-50p"></div>
+            <div class="flex flex-column align-center ml-20">
+              <div class="fs-10">香奈儿XXXX香奈儿XXXX香奈儿XXXX香奈儿XXXX</div>
+              <div class="fs-8 cl-b7b7b7">红 ;XL</div>
+              <div class="wd-100p flex justify-space-between">
+                <span class="cl-666">¥ 160</span>
+                <span class="cl-666 ">*2</span>
+              </div>
+            </div>
+          </div>
+          <div class="mt-50 flex align-center fs-10">
+            <span class="cl-979797 pr-10">总价￥360，运费￥10，其他费用￥10，优惠￥20</span> <span class="cl-666 fs-26 ">合计 ¥ 360</span>
+          </div>
+          <van-divider />
+          <div class="text-right">
+            <van-button type="primary" size="mini" class="pr-30 pl-30">查看物流</van-button>
           </div>
         </div>
       </van-list>
@@ -46,7 +131,7 @@ import {
   wechatAuthorization,
   setStorage
 } from "@/config/utils";
-import { Tab, Tabs, Button, PullRefresh, List, Search,Cell } from "vant";
+import { Tab, Tabs, Button, PullRefresh, List, Search,Cell,Divider } from "vant";
 import api from "@/api";
 export default {
   name: "ToolsCxh",
@@ -58,6 +143,7 @@ export default {
     vanTabs: Tabs,
     vanSearch: Search,
     vanCell: Cell,
+    vanDivider: Divider,
   },
   data() {
     return {

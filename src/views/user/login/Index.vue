@@ -1,5 +1,5 @@
 <template>
-  <div class="login-wrap">
+  <div class="login-wrap"  :style="{ minHeight: screenHeight + 'px' }">
     <div class="login-content pb-10">
       <div class="logo bc-fff border-radius-10">
         <img  src="~assets/images/common/logo.png" class="block" alt="" />
@@ -123,7 +123,8 @@ export default {
     return {
       sms: "",
       phoneNumber: "",
-      loginLoading: false
+      loginLoading: false,
+      screenHeight: document.body.clientHeight,
     };
   },
   beforeCreate() {
@@ -192,7 +193,7 @@ export default {
           } else {
             _this.$Toast({
               message: res.message
-            });
+            });wechatLogin
           }
           _this.loginLoading = false;
         });
@@ -246,10 +247,10 @@ export default {
   background-color: #fff;
   .login-content {
     position: fixed;
-    top:50%;
+    top:40%;
     left:50%;
     width: 100%;
-    transform:translate(-50%,-50%);
+    transform:translate(-50%,-40%);
     .phone-icon{
       top: 0;
       left: 0;

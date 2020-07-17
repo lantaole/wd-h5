@@ -2,17 +2,17 @@
   <div
     id="app"
     :style="{
-      paddingTop: isShowNavBar ? '46px' : '0',
+      // paddingTop: isShowNavBar ? '46px' : '0',
       paddingBottom: paddingBottom,
       backgroundColor: backgroundColor,
       minHeight: screenHeight + 'px'
     }"
   >
+    <!--顶部nav-->
+    <van-nav-bar :title="navBarTitle" v-show="isShowNavBar"></van-nav-bar>
     <keep-alive :max="3" include="Home,Search">
       <router-view></router-view>
     </keep-alive>
-    <!--顶部nav-->
-    <van-nav-bar :title="navBarTitle" v-show="isShowNavBar"></van-nav-bar>
 
     <!--右下按钮-->
     <div
