@@ -1,7 +1,7 @@
 <template>
   <van-button
     class="border-radius-10"
-    size="small"
+    size="mini"
     type="primary"
     :disabled="disables || time > 0"
     @click="run"
@@ -53,41 +53,31 @@ export default {
   },
   methods: {
     run() {
-      const _this = this;
-      if (!_this.phone || _this.phone.length != 11) {
-        _this.$Toast({
+      const self = this;
+      if (!self.phone || self.phone.length != 11) {
+        self.$Toast({
           message: "电话号码错误，请重新输入！"
         });
         return;
       }
-      _this.start();
-      _this.setDisabled(true);
-      this.$recaptcha("login")
-        .then(token => {
-          _this.getSmscode(token);
-        })
-        .catch(e => {
-          console.log("谷歌校验失败:" + e);
-          let token =
-            "03AOLTBLQDlBK70rQ7TPig8XscbF8WHCGRxam5RO4o0ow3Bi9-IZmFyvS4kUZfPEpDLAnaVxaAGAhVC590XPvj2hC6LEH452XeMeT_roXQM0-THEDQ4-cxhLFjLOAHYwKlf_NMMr8auYDYzY0b_VIOwxE9ATb-3_dnf-oko08hpF-ko6ARiDeD6e794Gnp9XRr2NMN-r_Mimm1lqWg_1ahGQ-OccKFwxNT2_QbHYeU6R0r2LPumoEdAyL69wQxH91EKR9YZkJH8hf1lVCj4t7Y5IofKHyF6gxN9MnPRVqVLmbqs0CPnvyr_iq_FNEBBhFlMljT0YopdzNh";
-          this.getSmscode(token);
-        });
+      self.start();
+      self.setDisabled(true);
+      this.getSmscode();
     },
-    getSmscode(token) {
-      const _this = this;
+    getSmscode() {
+      const self = this;
       api
         .sendVerifyCode({
-          phone: _this.phone,
-          purpose: _this.purpose,
-          token: token
+          phone: self.phone,
+          userType: 3
         })
         .then(res => {
           if (res.success) {
-            _this.$Toast({
+            self.$Toast({
               message: res.message
             });
           } else {
-            _this.$Toast({
+            self.$Toast({
               message: res.message || "发送失败"
             });
           }

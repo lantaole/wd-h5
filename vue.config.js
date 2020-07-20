@@ -13,17 +13,17 @@ module.exports = {
   productionSourceMap: false,
   lintOnSave: false,
   devServer: {
+    disableHostCheck: true,
     open: false,
     hot: true,
     overlay: {
       warnings: true,
       errors: true
     },
-    port: "3701",
+    port: "80",
     proxy: {
       "": {
-        // target: "http://192.168.100.161:8080", //测试环境
-        target: "http://testm.chapaiming.com", //预发环境
+        target: "https://dev.wdzhanggui.com/", //测试环境
         // target: "https://m.chapaiming.com", //正式环境
         changeOrigin: true,
         ws: false

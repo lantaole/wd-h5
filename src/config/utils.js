@@ -121,9 +121,9 @@ export const throttle = (fn, time) => {
 
   return function() {
     let args = arguments;
-    let _this = this;
+    let self = this;
     if (firstTime) {
-      _self.apply(_this, args);
+      _self.apply(self, args);
       return (firstTime = false);
     }
     if (timer) {
@@ -132,7 +132,7 @@ export const throttle = (fn, time) => {
     timer = setTimeout(() => {
       clearTimeout(timer);
       timer = null;
-      _self.apply(_this, args);
+      _self.apply(self, args);
     }, time || 500);
   };
 };
@@ -334,7 +334,7 @@ export const isWechat = () => {
 export const wechatAuthorization = (redirect_url, state) => {
   let State = state || "";
   let RedirectUrl = encodeURIComponent(redirect_url); //window.location.href
-  const app_id = "wx8424dcc1906d5733";
+  const app_id = "wxd634eb8ca1ab9581";
   window.location.href =
     "https://open.weixin.qq.com/connect/oauth2/authorize?appid=" +
     app_id +

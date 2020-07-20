@@ -321,7 +321,7 @@ export default {
     },
 
     upload(baseStr) {
-      const _this = this;
+      const self = this;
       const base64 = baseStr.split(",")[1];
       const text = window.atob(base64);
       const bufferLen = text.length;
@@ -329,18 +329,18 @@ export default {
       for (let i = 0; i < bufferLen; i++) {
         bufferArray[i] = text.charCodeAt(i);
       }
-      const key = _this.name + "/" + new Date().getTime();
+      const key = self.name + "/" + new Date().getTime();
       aliUploadConfig
         .aliUploadImgBuffer(key, bufferArray.buffer)
         .then(res => {
           if (res) {
-            _this.uploadImageUrl.push(res.url);
-            _this.onSuccess(_this.uploadImageUrl);
-            _this.isShowLoading = false;
+            self.uploadImageUrl.push(res.url);
+            self.onSuccess(self.uploadImageUrl);
+            self.isShowLoading = false;
           }
         })
         .catch(err => {
-          _this.isShowLoading = false;
+          self.isShowLoading = false;
           alert(err);
         });
     }

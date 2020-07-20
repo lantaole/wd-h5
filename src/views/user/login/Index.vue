@@ -52,49 +52,6 @@
         <p class=" text-center fs-24 mt-20">
           <span class="cl-b7b7b7">点击开始使用，即表示已阅读并同意</span> <span class="cl-979797">《法律条款及隐私政策》</span>
         </p>
-        <!--<div class="text-center mt-5">
-          <div class="inline-block pd-10" @click="wechatLogin">
-            <img
-              src="~assets/images/login/wxdl.png"
-              alt=""
-              width="30"
-              height="30"
-            />
-            <div>微信授权登录</div>
-          </div>
-        </div>
-        <img
-          v-show="isActivity"
-          class="row-img mg-auto mt-20"
-          :src="this.baseUrl + '/images/common/717/row-img.png'"
-          alt=""
-          @click="jumpTo('/activity-717')"
-        />
-        <div class="other-way-login mt-40">
-          <span class="line border-bottom"></span>
-          <a href="https://support.qq.com/products/60627/faqs/48969" class="txt"
-            >收不到验证码？获取帮助</a
-          >
-          <span class="line border-bottom"></span>
-        </div>
-
-        <p class="cl-main fs-26 text-center mt-20">
-          长按识别二维码
-        </p>
-
-        <img class="wechat-img" :src="wechatInfo.wechatImg" alt="" />
-
-        <div class="text-center mt-20 pb-30">
-          <van-button
-            plain
-            size="mini"
-            type="primary"
-            class="pl-40 pr-40 mg-auto border-radius-10 fs-26"
-            id="copy"
-            :data-clipboard-text="wechatInfo.wechatCode"
-            >复制微信号,去添加</van-button
-          >
-        </div>-->
       </div>
     </div>
   </div>
@@ -104,7 +61,6 @@
 import { Button, Field } from "vant";
 import SmsCountdown from "@/components/SmsCountdown";
 import api from "@/api";
-import Clipboard from "clipboard";
 import {
   setStorage,
   getStorage,
@@ -131,110 +87,30 @@ export default {
     this.baseUrl = process.env.BASE_URL;
   },
   computed: {
-    // 微信客服消息
-    wechatInfo() {
-      return getWechatImg("service");
-    },
-    // 是否为活动期间
-    isActivity() {
-      return this.$store.state.isActivity;
-    }
+
   },
   created() {
-    this.$nextTick(function() {
-      let clipboard = new Clipboard("#copy");
-      clipboard.on("success", () => {
-        this.$Toast("复制成功!");
-      });
-      clipboard.on("error", () => {
-        this.$Toast("复制失败!");
-        clipboard.destroy();
-      });
-    });
   },
   methods: {
     // 登陆注册
     signAndLogin() {
-      const _this = this;
-      if (!_this.phoneNumber) {
-        _this.$Toast({
+      const self = this;
+      if (!self.phoneNumber) {
+        self.$Toast({
           message: "请输入手机号"
         });
         return;
       }
-      if (!_this.sms) {
-        _this.$Toast({
-          message: "请输入验证码"
-        });
-        return;
-      }
-      _this.loginLoading = true;
-      api
-        .signAndLogin({
-          phone: _this.phoneNumber,
-          smsCode: this.sms,
-          fromPage: getStorage("qd_page") || "",
-          qudao: getStorage("qd") || ""
-        })
-        .then(res => {
-          if (res.success) {
-            const token =
-              res.result.token.userId + "_" + res.result.token.token;
-            setStorage("isNewUser", res.result.isNewUser);
-            setStorage("isReLogin", true);
-            _this.$store.commit({
-              type: "LOGIN",
-              info: {
-                phone: _this.phoneNumber,
-                token: token
-              }
-            });
-            _this.wechat();
-          } else {
-            _this.$Toast({
-              message: res.message
-            });wechatLogin
-          }
-          _this.loginLoading = false;
-        });
+      self.wechat()
     },
-    // 微信授权相关
     wechat() {
-      if (isWechat()) {
-        // 监测有没有微信授权过
-        api.getIsWeChatAuthed().then(res => {
-          setStorage("authed", res.result.authed);
-          wechatAuthorization(window.location.origin + "/wechatLogin");
-        });
-      } else {
-        this.loginSuccessCallback();
-      }
-    },
-    // 老用户登陆
-    wechatLogin() {
+      // 监测有没有微信授权过
       wechatAuthorization(window.location.origin + "/wechatLogin");
+      // api.getIsWeChatAuthed().then(res => {
+      //   setStorage("authed", res.result.authed);
+      //   wechatAuthorization(window.location.origin + "/wechatLogin");
+      // });
     },
-    // 非微信环境,获取用户信息
-    loginSuccessCallback() {
-      this.$store.dispatch("UPDATE_USER_INFO", {
-        token: getStorage("token")
-      });
-      this.$Toast({
-        message: "登录成功"
-      });
-      let loginBackUrl = getStorage("loginBackUrl") || "/";
-      let loginBackQuery = getStorage("loginBackQuery") || {};
-      this.$router.replace({
-        path: loginBackUrl,
-        query: loginBackQuery
-      });
-      this.loginLoading = false;
-    },
-    jumpTo(path) {
-      this.$router.push({
-        path: path
-      });
-    }
   }
 };
 </script>

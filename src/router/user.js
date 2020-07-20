@@ -1,17 +1,5 @@
 export default [
   {
-    path: "/account",
-    name: "Account",
-    meta: {
-      title: "个人中心",
-      isShowNavBar: true,
-      isShowTabBar: true,
-      markName: "user_center"
-    },
-    component: () =>
-      import(/* webpackChunkName: "user" */ "../views/user/account/Index.vue")
-  },
-  {
     path: "/login",
     name: "Login",
     meta: {
@@ -38,37 +26,10 @@ export default [
       )
   },
   {
-    path: "/buy-energy",
-    name: "BuyEnergy",
-    meta: {
-      title: "能量加油站",
-      isShowNavBar: true,
-      isShowTabBar: true,
-      markName: "product_purchase"
-    },
-    component: () =>
-      import(/* webpackChunkName: "user" */ "../views/user/buyEnergy/Index.vue")
-  },
-  {
-    path: "/energy-list",
-    name: "EnergyList",
-    meta: {
-      title: "我的能量",
-      isShowNavBar: true,
-      isShowTabBar: true,
-      markName: "",
-      showDaySign: true
-    },
-    component: () =>
-      import(
-        /* webpackChunkName: "user" */ "../views/user/buyEnergy/EnergyList.vue"
-      )
-  },
-  {
     path: "/order-list",
     name: "OrderList",
     meta: {
-      title: "我的订单",
+      title: "订单列表",
       isShowNavBar: true,
       isShowTabBar: false,
       markName: ""
@@ -77,39 +38,27 @@ export default [
       import(/* webpackChunkName: "user" */ "../views/user/orderList/Index.vue")
   },
   {
-    path: "/share",
-    name: "Share",
+    path: "/order-desc",
+    name: "OrderDesc",
     meta: {
-      title: "分享得能量",
+      title: "订单详情",
       isShowNavBar: true,
-      isShowTabBar: true,
-      markName: "share_activity"
-    },
-    component: () =>
-      import(/* webpackChunkName: "user" */ "../views/user/share/Share.vue")
-  },
-  {
-    path: "/share-back",
-    name: "ShareBack",
-    meta: {
-      title: "获取能量",
-      isShowNavBar: true,
-      isShowTabBar: true,
-      markName: "share_activity"
-    },
-    component: () =>
-      import(/* webpackChunkName: "user" */ "../views/user/share/ShareBack.vue")
-  },
-  {
-    path: "/my-fans",
-    name: "MyFans",
-    meta: {
-      title: "我的粉丝",
-      isShowNavBar: true,
-      isShowTabBar: true,
+      isShowTabBar: false,
       markName: ""
     },
     component: () =>
-      import(/* webpackChunkName: "user" */ "../views/user/share/MyFans.vue")
-  }
+      import(/* webpackChunkName: "user" */ "../views/user/orderDesc/Index.vue")
+  },
+  {
+    path: "/logistics",
+    name: "Logistics",
+    meta: {
+      title: "物流查询",
+      isShowNavBar: true,
+      isShowTabBar: false,
+      markName: ""
+    },
+    component: () =>
+      import(/* webpackChunkName: "user" */ "../views/logistics/Index.vue")
+  },
 ];

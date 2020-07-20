@@ -151,7 +151,9 @@ input[type="number"] {
 .cl-000 {
   color: #000;
 }
-
+.cl-ccc{
+  color: #ccc !important;
+}
 .cl-333 {
   color: #333
 }
@@ -192,7 +194,9 @@ input[type="number"] {
 .cl-ff6000 {
   color: #ff6000;
 }
-
+.cl-0091FF{
+  color: #0091FF
+}
 
 /*background-color*/
 .bg-fff{
@@ -246,6 +250,9 @@ input[type="number"] {
 .mt-20 {
   margin-top: 20px;
 }
+.mt-24{
+  margin-top: 24px !important;
+}
 
 .mt-25 {
   margin-top: 25px;
@@ -257,6 +264,10 @@ input[type="number"] {
 
 .mt-35 {
   margin-top: 35px;
+}
+
+.mt-36 {
+  margin-top: 36px !important;
 }
 
 .mt-40 {
@@ -423,6 +434,9 @@ input[type="number"] {
 .mb-35 {
   margin-bottom: 35px;
 }
+.mb-36 {
+  margin-bottom: 36px;
+}
 
 .mb-40 {
   margin-bottom: 40px;
@@ -495,6 +509,9 @@ input[type="number"] {
 
 .ml-25 {
   margin-left: 25px;
+}
+.ml-28{
+  margin-left: 28px !important;
 }
 
 .ml-30 {
@@ -661,6 +678,9 @@ input[type="number"] {
 .pt-25 {
   padding-top: 25px;
 }
+.pt-28 {
+  padding-top: 28px !important;
+}
 
 .pt-30 {
   padding-top: 30px;
@@ -823,6 +843,9 @@ input[type="number"] {
 .pb-25 {
   padding-bottom: 25px;
 }
+.pb-28 {
+  padding-bottom: 28px !important;
+}
 
 .pb-30 {
   padding-bottom: 30px;
@@ -965,7 +988,7 @@ input[type="number"] {
   padding-left: 100px;
 }
 .pl-120{
-  padding-left: 120px;
+  padding-left: 120px !important;
 }
 .wd-100p{
   width: 100%;
@@ -982,6 +1005,12 @@ input[type="number"] {
 }
 .h-100{
   height: 100px !important;
+}
+.h-94{
+  height: 94px;
+}
+.h-24{
+  height: 24px !important;
 }
 /*flex 布局*/
 .flex {

@@ -1,11 +1,6 @@
 import Vue from "vue";
 import Router from "vue-router";
 import user from "./user";
-import home from "./home";
-import tools from "./tools";
-import vip from "./vip";
-import common from "./common";
-import other from "./other";
 import verificationCode from "./verificationCode";
 Vue.use(Router);
 
@@ -15,5 +10,5 @@ export default new Router({
     return savedPosition ? savedPosition : { x: 0, y: 0 };
   },
   base: process.env.BASE_URL,
-  routes: [...home, ...user, ...tools, ...vip, ...common, ...other, ...verificationCode]
+  routes: [ ...user,  ...verificationCode]
 });

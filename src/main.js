@@ -40,25 +40,6 @@ if (window.__wxjs_is_wkwebview) {
 }
 router.afterEach(to => {
   document.title = to.meta.title;
-  // 百度网站统计埋点
-  setTimeout(() => {
-    var _hmt = _hmt || [];
-    (function() {
-      //每次执行前，先移除上次插入的代码
-      document.getElementById("baidu_tj") &&
-        document.getElementById("baidu_tj").remove();
-      var hm = document.createElement("script");
-      hm.src = "https://hm.baidu.com/hm.js?3e63c15c12ed2afdd367941fcf7df3d0";
-      hm.id = "baidu_tj";
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(hm, s);
-    })();
-  }, 0);
-  // 监听来源 360 百度
-  if (to.query.qd) {
-    setStorage("qd", to.query.qd);
-    setStorage("qd_page", window.location.href);
-  }
   // 监听是否为分享进入页面,保存分享参数
   if (to.query.referrerId && to.query.fromPage) {
     setStorage("sharePath", to.path);

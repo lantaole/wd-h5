@@ -60,5 +60,12 @@ const localeName = (obj, locale) => {
   }
   return localeName;
 };
+const fixNumber = (value, number) => {
+  if (!value) return;
+  return value.toFixed(number);
+};
 
-export { dateFormat, localeName, networkImageHack };
+
+
+
+export { dateFormat, localeName, networkImageHack, fixNumber };
