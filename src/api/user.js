@@ -10,16 +10,10 @@ export default {
    * 手机验证码注册登陆
    */
   bindMobile(params) {
-    return axiosConfig.get("/user/bind/mobile", params);
+    return axiosConfig.get("user/bind/mobile", params);
   },
 
 
-  /**
-   * 监测有没有微信授权
-   */
-  getIsWeChatAuthed() {
-    return axiosConfig.get("user/isWeChatAuthed.json");
-  },
   /**
    * 获取用户信息
    */

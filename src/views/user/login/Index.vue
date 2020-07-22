@@ -46,7 +46,6 @@
           type="primary"
           class="mt-40 border-radius-10"
           @click="signAndLogin"
-          :loading="loginLoading"
           >登录</van-button
         >
         <p class=" text-center fs-24 mt-20">
@@ -79,7 +78,6 @@ export default {
     return {
       sms: "",
       phoneNumber: "",
-      loginLoading: false,
       screenHeight: document.body.clientHeight,
     };
   },
@@ -100,16 +98,9 @@ export default {
           message: "请输入手机号"
         });
         return;
+      }else {
+        self.$router.push({name: 'VerificationCode', query: {phone: this.phoneNumber}})
       }
-      self.wechat()
-    },
-    wechat() {
-      // 监测有没有微信授权过
-      wechatAuthorization(window.location.origin + "/wechatLogin");
-      // api.getIsWeChatAuthed().then(res => {
-      //   setStorage("authed", res.result.authed);
-      //   wechatAuthorization(window.location.origin + "/wechatLogin");
-      // });
     },
   }
 };

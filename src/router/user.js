@@ -3,7 +3,7 @@ export default [
     path: "/login",
     name: "Login",
     meta: {
-      title: "登录注册",
+      title: "绑定手机号",
       isShowNavBar: true,
       isShowTabBar: false,
       markName: "user_reg"

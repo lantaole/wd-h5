@@ -52,27 +52,28 @@ export default {
   watch: {
     $route(to, from) {
       const self = this;
-      if (to.path === "/login" && from.path !== "/wechatLogin") {
-        setStorage("loginBackUrl", from.path || "/");
-        setStorage("loginBackQuery", from.query || {});
-        if (self.isLogin) {
-          self.$Toast("您已经登陆过了");
-          self.$router.push({
-            path: "/account"
-          });
-        }
-      }
-      if (self.noLoginPathList.includes(to.path)) {
-
-      }else {
-        if (!self.isLogin) {
-          setTimeout(function() {
-            if (!self.isLogin) {
-              self.$router.replace({ path: "/login" });
-            }
-          }, 20);
-        }
-      }
+      // if (to.path === "/login" && from.path !== "/wechatLogin") {
+      //   setStorage("loginBackUrl", from.path || "/order-list");
+      //   setStorage("loginBackQuery", from.query || {});
+      //   if (self.isLogin) {
+      //     self.$Toast("您已经登陆过了");
+      //     self.$router.push({
+      //       path: "/account"
+      //     });
+      //   }
+      // }
+      // if (!self.isLogin) {
+      //   setTimeout(function() {
+      //     if (!self.isLogin) {
+      //       self.$router.replace({ path: "/wechatLogin" });
+      //     }
+      //   }, 20);
+      // }
+      // if (self.noLoginPathList.includes(to.path)) {
+      //
+      // }else {
+      //
+      // }
     },
     screenHeight(val) {
       this.screenHeight = val;

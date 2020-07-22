@@ -7,41 +7,12 @@ import { setStorage } from "@/config/utils";
 
 export default {
   // 更新用户信息
-  [types.UPDATE_USER_INFO]({ commit }, payload = {}) {
-    if (payload && payload.token) setStorage("token", payload.token);
-    // const { id } = state.userInfo;
-    return new Promise((resolve, reject) => {
-      api
-        .getUserInfo()
-        .then(res => {
-          if (res.success) {
-            commit({
-              type: "RECORD_USER_INFO",
-              info: res.result
-            });
-          }
-          resolve(res);
-        })
-        .catch(err => {
-          reject(err);
-        });
+  [types.UPDATE_USER_INFO]({ commit }, data = {}) {
+    console.log(data);
+    if (data && data.token) setStorage("token", data.token);
+    commit({
+      type: "RECORD_USER_INFO",
+      data: data
     });
   },
-  // 更新用户能量数
-  [types.UPDATE_USER_ENERGY]({ commit }) {
-    return new Promise((resolve, reject) => {
-      api
-        .getEnergyInfo()
-        .then(res => {
-          commit({
-            type: "RECORD_USER_ENERGY",
-            info: res.result || {}
-          });
-          resolve(res);
-        })
-        .catch(err => {
-          reject(err);
-        });
-    });
-  }
 };

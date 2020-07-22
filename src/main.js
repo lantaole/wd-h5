@@ -22,7 +22,6 @@ Vue.use(Lazyload);
 Vue.use(VueJsonp);
 
 // 应用初始化校验用户登录信息
-store.commit("INIT_USER_INFO");
 
 Vue.prototype.$Toast = Toast;
 Vue.prototype.$wx = wx;

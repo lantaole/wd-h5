@@ -68,17 +68,17 @@ export default {
       const self = this;
       api
         .sendVerifyCode({
-          phone: self.phone,
+          mobile: self.phone,
           userType: 3
         })
         .then(res => {
           if (res.success) {
             self.$Toast({
-              message: res.message
+              message: res.msg
             });
           } else {
             self.$Toast({
-              message: res.message || "发送失败"
+              message: res.msg || "发送失败"
             });
           }
         });

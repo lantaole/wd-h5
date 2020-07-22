@@ -3,7 +3,7 @@
     <div class="text-center wd-100p mt-20p">
       <div class="cl-666 fs-40 mb-15">输入验证码</div>
       <div class="cl-666 fs-32 mb-15">验证码已发送至：{{phone}}</div>
-      <div class="cl-b7b7b7 fs-24 mb-10">
+      <div class="cl-b7b7b7 fs-24 mb-10" v-if="phone">
           <sms-countdown
             ref='verificationCodeSmsCountDown'
             slot="button"
@@ -70,59 +70,26 @@ export default {
   },
   data() {
     return {
-      phone: '13655816578',
+      phone: null,
       ct: ['', '', '', ''],
       msg: '',
       loading: false,
     };
   },
   created() {
-    this.login()
+    this.phone = this.$route.query.phone
   },
   mounted() {
-
+    this.init()
     this.$nextTick(function () {
       this.resetCaret();
     })
-    this.$refs.verificationCodeSmsCountDown.run();
   },
   methods: {
-    login(){
-      let self = this;
-      // api
-      //   .signAndLogin({
-      //     phone: self.phoneNumber,
-      //     smsCode: this.sms,
-      //     fromPage: getStorage("qd_page") || "",
-      //     qudao: getStorage("qd") || ""
-      //   })
-      //   .then(res => {
-      //     if (res.success) {
-      //       const token =
-      //         res.result.token.userId + "_" + res.result.token.token;
-      //       setStorage("isNewUser", res.result.isNewUser);
-      //       setStorage("isReLogin", true);
-      //       self.$store.commit({
-      //         type: "LOGIN",
-      //         info: {
-      //           phone: self.phoneNumber,
-      //           token: token
-      //         }
-      //       });
-      //       self.wechat();
-      //     } else {
-      //       self.$Toast({
-      //         message: res.message
-      //       });
-      //     }
-      //     self.loginLoading = false;
-      //   });
+    init(){
+      this.$refs.verificationCodeSmsCountDown.run();
     },
 
-    // 老用户登陆
-    wechatLogin() {
-      wechatAuthorization(window.location.origin + "/wechatLogin");
-    },
     onInput(val, index) {
       this.msg = ''
       val = val.replace(/\s/g, '');
@@ -156,18 +123,23 @@ export default {
       }
     },
     sendCaptcha() {
-      console.log();
-      this.msg = this.ct.join('');
+      let self = this;
+      self.msg = this.ct.join('');
       // 此时无法操作 input。。
-      this.loading = true;
-
-      setTimeout(() => {
-        this.msg = ('验证码错误')
-        this.loading = false;
-        this.$nextTick(() => {
-          this.reset();
-        })
-      }, 3000)
+      self.loading = true;
+      api.bindMobile({userType: 2, mobile: self.phone.toString(), mobileCode: self.msg}).then(res => {
+        if(res.success){
+          self.$router.push({name: 'OrderList'})
+        }
+        self.$Toast(res.msg)
+      })
+      // setTimeout(() => {
+      //   this.msg = ('验证码错误')
+      //   this.loading = false;
+      //   this.$nextTick(() => {
+      //     this.reset();
+      //   })
+      // }, 3000)
     },
 
     reset() {
